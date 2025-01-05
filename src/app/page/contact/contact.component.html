@@ -1,0 +1,46 @@
+<hr>
+<div class="container">
+    <form [formGroup]="contactForm" (submit)="enviar($event)" >
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input 
+            [ngClass]="{'is-invalid': hasErrors('email', 'required')||hasErrors('email', 'email')}"
+            type="email" class="form-control" id="email" formControlName="email" >
+            @if (hasErrors('email', 'required')) {
+                <span class="text-danger">Correo Requerido</span>
+            }
+            @if (hasErrors('email', 'email')) {
+                <span class="text-danger">Formato de correo no valido</span>
+            }
+  
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Nombre</label>
+            <input 
+            [ngClass]="{'is-invalid': hasErrors('name', 'required')}"
+            type="text" id="name" class="form-control" formControlName="name" >
+            @if (hasErrors('email', 'required')) {
+                <span class="text-danger">Nombre Requerido</span>
+            }
+        </div>
+        <div class="mb-3">
+            <label for="number" class="form-label">Numero</label>
+            <input
+            [ngClass]="{'is-invalid': hasErrors('number', 'required')||hasErrors('number', 'maxlength')}"
+            type="text" class="form-control" id="number" formControlName="number" >
+            @if (hasErrors('number', 'required')) {
+                <span class="text-danger">Numero Requerido</span>
+            }
+            @if (hasErrors('number', 'maxlength')) {
+                <span class="text-danger">Solo de acepta 10 numeros</span>
+            }
+        </div>
+
+        <button type="submit" class="btn btn-outline-primary">Enviar</button>
+
+    </form>
+
+
+    
+
+</div>
