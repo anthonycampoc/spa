@@ -19,7 +19,7 @@
             <input 
             [ngClass]="{'is-invalid': hasErrors('name', 'required')}"
             type="text" id="name" class="form-control" formControlName="name" >
-            @if (hasErrors('email', 'required')) {
+            @if (hasErrors('name', 'required')) {
                 <span class="text-danger">Nombre Requerido</span>
             }
         </div>
